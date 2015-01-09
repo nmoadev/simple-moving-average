@@ -1,0 +1,10 @@
+{
+  "name": "simple-moving-average",
+  "version": "0.0.1",
+  "devDependencies": {
+    "mocha": "2.0.1"
+  },
+  "scripts": {
+    "test": "node_modules/mocha/bin/mocha --recursive test"
+  }
+}
