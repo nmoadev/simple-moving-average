@@ -6,6 +6,7 @@ module.exports = function SimpleMovingAverage(windowSize) {
       sma = {};
 
   sma.reset = function reset() {
+    sum = 0;
     queue = Queue(); 
   };
 
@@ -20,7 +21,9 @@ module.exports = function SimpleMovingAverage(windowSize) {
   };
 
   sma.getAverage = function getAverage() {
-    return sum / (queue.getLength() < windowSize ? queue.getLength() : windowSize);
+    var divisor = queue.getLength() < windowSize ? queue.getLength() : windowSize;
+    divisor = divisor <= 0 ? 1 : divisor;
+    return sum / divisor;
   };
 
   return sma;
